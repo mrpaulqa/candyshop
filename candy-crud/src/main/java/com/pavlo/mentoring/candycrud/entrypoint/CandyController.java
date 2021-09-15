@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 public class CandyController {
-    @GetMapping("/candy")
+    @GetMapping("/candies")
     public String getAllCandies() {
         List<Candy> candies = new ArrayList<>();
         candies.add(new Candy("this is soft candy"));
