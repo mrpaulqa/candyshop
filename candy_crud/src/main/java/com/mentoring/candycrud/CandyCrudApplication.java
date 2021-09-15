@@ -1,5 +1,4 @@
-package com.pavlo.mentoring.candycrud;
-
+package com.mentoring.candycrud;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

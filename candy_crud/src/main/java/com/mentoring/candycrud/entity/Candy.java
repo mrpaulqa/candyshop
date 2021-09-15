@@ -1,4 +1,4 @@
-package com.pavlo.mentoring.candycrud.entity;
+package  com.mentoring.candycrud.entity;
 
 import java.util.List;
 
