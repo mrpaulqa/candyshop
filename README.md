@@ -1,2 +1,0 @@
-# candyshop
-test project
