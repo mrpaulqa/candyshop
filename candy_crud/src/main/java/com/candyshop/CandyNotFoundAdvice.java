@@ -1,6 +1,5 @@
 package com.candyshop;
 
-import com.candyshop.exception.CandyNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

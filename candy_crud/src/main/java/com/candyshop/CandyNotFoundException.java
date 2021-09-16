@@ -1,4 +1,4 @@
-package com.candyshop.exception;
+package com.candyshop;
 
 public class CandyNotFoundException extends RuntimeException{
     public CandyNotFoundException(Long id) {
