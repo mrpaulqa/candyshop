@@ -8,13 +8,13 @@
 		<version>2.5.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.mentoring.candy-crud</groupId>
-	<artifactId>com.mentoring.candycrud</artifactId>
+	<groupId>com.pavlo.mentoring</groupId>
+	<artifactId>candy-crud</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>com.mentoring.candycrud</name>
-	<description>Candy shop project</description>
+	<name>Candy Crud</name>
+	<description>this project should allow to CRUD Candy Entity</description>
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>11</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
