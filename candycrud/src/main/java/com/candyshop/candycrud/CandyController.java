@@ -13,7 +13,7 @@ public class CandyController {
 
     @GetMapping("/candy")
     public String index() {
-        return "Greetings from Spring Boot!";
+        return "Welcome to candy page";
     }
 
     @GetMapping(path="/candies/all")
