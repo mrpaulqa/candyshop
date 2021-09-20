@@ -3,6 +3,7 @@ package com.candyshop.customerscrud.entity;
 import javax.persistence.*;
 import java.util.List;
 
+// TODO Remove all annotations and imports.
 @Entity
 public class Customer {
     @Id

@@ -2,6 +2,7 @@ package com.candyshop.candycrud.entity;
 
 import javax.persistence.*;
 
+// TODO Remove all annotations and imports.
 @Entity
 public class Candy {
     @Id

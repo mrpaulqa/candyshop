@@ -2,6 +2,7 @@ package com.candyshop.customerscrud.entity;
 
 import javax.persistence.*;
 
+// TODO Remove all annotations and imports.
 @Entity
 @Table(name = "customer_contact")
 public class Contact {

@@ -6,8 +6,11 @@ import com.candyshop.candycrud.repos.CandyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+// TODO remove reference of Repository withtin the methods.
 @RestController
 public class CandyController {
+
+    // TODO remove this
     @Autowired
     private CandyRepository candyRepository;
 
@@ -16,17 +19,20 @@ public class CandyController {
         return "Welcome to candy page";
     }
 
+    // TODO Remove this method
     @GetMapping(path="/candies/all")
     public @ResponseBody
     Iterable<Candy> getAllUsers() {
         return candyRepository.findAll();
     }
 
+    // TODO I have mentioned to not return the entity. Keep it simple.
     @GetMapping(path="/candies/{id}")
-    Candy one(@PathVariable Integer id){
-        return candyRepository.findById(id).orElseThrow(()->new CandyNotFoundException(id));
+    Candy one(@PathVariable Integer id) {
+        return candyRepository.findById(id).orElseThrow(() -> new CandyNotFoundException(id));
     }
 
+    // TODO remove save
     @PostMapping(path="/candies/add")
     public @ResponseBody String addNewCustomer (@RequestParam String name,
                                                 @RequestParam String composition,
