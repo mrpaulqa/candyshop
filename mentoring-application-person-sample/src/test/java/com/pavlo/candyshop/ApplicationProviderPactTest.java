@@ -6,7 +6,7 @@ import au.com.dius.pact.provider.junit5.PactVerificationInvocationContextProvide
 import au.com.dius.pact.provider.junitsupport.Provider;
 import au.com.dius.pact.provider.junitsupport.State;
 import au.com.dius.pact.provider.junitsupport.loader.PactBroker;
-import com.pavlo.candyshop.entrypoint.CandyController;
+import com.pavlo.candyshop.entrypoint.PersonController;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestTemplate;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -28,7 +28,7 @@ public class ApplicationProviderPactTest {
     private int port;
 
     @Autowired
-    private CandyController candyController;
+    private PersonController personController;
 
     //Binding between the contract test with our random port of springboot
     @BeforeEach
@@ -46,14 +46,14 @@ public class ApplicationProviderPactTest {
     }
 
     //state will be pact name defined by the consumer
-    @State(value = "Should Provide a List of Candies")
-    public void shouldProvideListOfCandies() {
-        this.candyController.getAll();
+    @State(value = "Should Provide a List of People")
+    public void shouldProvideListOfPeople() {
+        this.personController.getAll();
     }
 
-    @State(value = "Should Provide a Candy information of id 1")
-    public void shouldProvideListOfCandies(Map<String, Object> params) {
+    @State(value = "Should Provide a Person information of id 1")
+    public void shouldProvideAPerson(Map<String, Object> params) {
         Integer id = Integer.parseInt(params.get("id").toString());
-        this.candyController.get(id);
+        this.personController.get(id);
     }
 }

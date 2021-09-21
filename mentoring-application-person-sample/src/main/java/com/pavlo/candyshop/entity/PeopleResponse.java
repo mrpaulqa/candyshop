@@ -5,6 +5,6 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class CandiesResponse {
-    private List<Candy> candies;
+public class PeopleResponse {
+    private List<Person> people;
 }

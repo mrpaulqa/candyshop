@@ -2,8 +2,10 @@ package com.pavlo.candyshop.entity;
 
 import lombok.Data;
 
-// POJO
+import java.util.List;
+
 @Data
-public class Candy {
+public class Project {
     Integer id;
+    List<Person> illegible;
 }

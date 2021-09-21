@@ -7,10 +7,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-public class CandyCrudApplication {
+public class ProjectApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CandyCrudApplication.class, args);
+		SpringApplication.run(ProjectApplication.class, args);
 	}
 
 	// Is needed in order to automatically convert a POJO (Plain old java object) into a JSON.

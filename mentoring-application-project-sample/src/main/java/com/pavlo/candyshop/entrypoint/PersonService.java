@@ -1,20 +1,19 @@
 package com.pavlo.candyshop.entrypoint;
 
-import com.pavlo.candyshop.entity.CandiesResponse;
-import com.pavlo.candyshop.entity.Candy;
+import com.pavlo.candyshop.entity.PeopleResponse;
+import com.pavlo.candyshop.entity.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
 
-//Could be a Rest Controller without any problems.
-@Controller
-public class CandyConsumerController {
+@Service
+public class PersonService {
 
     @Autowired
     private RestTemplate restTemplate;
@@ -23,12 +22,12 @@ public class CandyConsumerController {
     private String baseUrl = "http://localhost:8080/";
 
     //Could have get mapping without any problems.
-    public CandiesResponse getAllCandies() {
-        return callApi("/candy", CandiesResponse.class);
+    public PeopleResponse getAllPeople() {
+        return callApi("/person", PeopleResponse.class);
     }
 
-    public Candy getACandy(Integer id) {
-        return callApi("/candy/" + id, Candy.class);
+    public Person getAPerson(Integer id) {
+        return callApi("/person/" + id, Person.class);
     }
 
     public String getBaseUrl() {
