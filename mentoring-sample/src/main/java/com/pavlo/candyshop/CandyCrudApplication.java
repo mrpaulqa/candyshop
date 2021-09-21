@@ -13,6 +13,7 @@ public class CandyCrudApplication {
 		SpringApplication.run(CandyCrudApplication.class, args);
 	}
 
+	// Is needed in order to automatically convert a POJO (Plain old java object) into a JSON.
 	@Bean
 	public RestTemplate restTemplate(RestTemplateBuilder builder) {
 		return builder.build();

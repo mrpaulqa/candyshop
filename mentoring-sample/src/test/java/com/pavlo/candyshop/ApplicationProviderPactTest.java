@@ -19,8 +19,9 @@ import java.util.Map;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@Provider("mentoring-sample-provider-contract")
-@PactBroker(host = "localhost", port = "9292")
+@Provider("application-person")
+// We are defining the broker in order to download the contract defined by the consumer app
+@PactBroker(scheme="http", host="localhost", port="9292")
 public class ApplicationProviderPactTest {
 
     @LocalServerPort
@@ -29,9 +30,13 @@ public class ApplicationProviderPactTest {
     @Autowired
     private CandyController candyController;
 
+    //Binding between the contract test with our random port of springboot
     @BeforeEach
     public void setupTestTarget(PactVerificationContext context) {
         context.setTarget(new HttpTestTarget("localhost", port));
+        // little discovery... 6hrs...
+        System.setProperty("pact.verifier.publishResults", "true");
+        System.setProperty("pact.provider.version", "0.1.0");
     }
 
     @TestTemplate
@@ -40,6 +45,7 @@ public class ApplicationProviderPactTest {
         context.verifyInteraction();
     }
 
+    //state will be pact name defined by the consumer
     @State(value = "Should Provide a List of Candies")
     public void shouldProvideListOfCandies() {
         this.candyController.getAll();

@@ -12,14 +12,17 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
 
+//Could be a Rest Controller without any problems.
 @Controller
 public class CandyConsumerController {
 
     @Autowired
     private RestTemplate restTemplate;
 
+    // Reach out Person Application
     private String baseUrl = "http://localhost:8080/";
 
+    //Could have get mapping without any problems.
     public CandiesResponse getAllCandies() {
         return callApi("/candy", CandiesResponse.class);
     }
