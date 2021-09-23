@@ -25,7 +25,6 @@ public class PersonController {
     public Person get(@PathVariable Integer id){
         Person c = new Person();
         c.setId(id);
-
         return c;
     }
 }
