@@ -3,21 +3,19 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <groupId>com.mentoring.candyshop</groupId>
+    <artifactId>membership-crud</artifactId>
+    <version>1.0-SNAPSHOT</version>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.5.0</version>
         <relativePath/>
     </parent>
-    <groupId>com.mentoring.candyshop</groupId>
-    <artifactId>candy-crud</artifactId>
-    <version>1.0-SNAPSHOT</version>
-
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <pact.version>4.1.13</pact.version>
-
     </properties>
     <dependencies>
         <dependency>
@@ -69,26 +67,12 @@
             <version>${pact.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-jpa</artifactId>
-            <version>2.5.2</version>
-        </dependency>
     </dependencies>
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-
-            <plugin>
-                <groupId>au.com.dius.pact.provider</groupId>
-                <artifactId>maven</artifactId>
-                <version>${pact.version}</version>
-                <configuration>
-                    <pactBrokerUrl>http://localhost:9292</pactBrokerUrl>
-                </configuration>
             </plugin>
         </plugins>
     </build>

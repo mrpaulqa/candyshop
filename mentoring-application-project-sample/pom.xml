@@ -11,7 +11,7 @@
 	<groupId>com.pavlo.candyshop</groupId>
 	<artifactId>mentoring-application-project-sample</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<description>This project should allow to CRUD a Project entity</description>
+	<description>This project should allow to CRUD a Project com.candyshop.invoice.com.candyshop.storage.entity.com.candyshop.storage.entity</description>
 	<properties>
 		<java.version>1.8</java.version>
 		<pact.version>4.1.13</pact.version>
