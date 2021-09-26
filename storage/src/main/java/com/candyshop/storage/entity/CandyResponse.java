@@ -5,6 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class StorageResponse {
-    List<Storage> storageList;
+public class CandyResponse {
+    private  List<Candy> candies;
+
 }

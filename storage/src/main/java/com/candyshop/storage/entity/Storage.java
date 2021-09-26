@@ -1,12 +1,16 @@
 package com.candyshop.storage.entity;
 
-import com.candyshop.candycrud.entity.Candy;
+
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 public class Storage {
+    Long id;
     Candy item;
     Long quantity;
     Long reserved;
+    List<Candy> candyList;
 
 }
