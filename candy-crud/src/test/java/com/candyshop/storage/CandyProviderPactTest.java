@@ -6,6 +6,7 @@ import au.com.dius.pact.provider.junit5.PactVerificationInvocationContextProvide
 import au.com.dius.pact.provider.junitsupport.Provider;
 import au.com.dius.pact.provider.junitsupport.State;
 import au.com.dius.pact.provider.junitsupport.loader.PactBroker;
+import com.candyshop.candycrud.entity.Candy;
 import com.candyshop.candycrud.entrypoint.CandyController;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestTemplate;
@@ -55,5 +56,12 @@ public class CandyProviderPactTest {
     public void shouldProvideACandy(Map<String, Object> params) {
         Integer id = Integer.parseInt(params.get("id").toString());
         this.candyController.get(id);
+    }
+
+    @State(value = "Should Provide composition and id for Candy")
+    public void candyCompositionById(Map<String, Object> params) {
+        Integer id = Integer.parseInt(params.get("id").toString());
+        this.candyController.get(id);
+        this.candyController.getCompositionById(id);
     }
 }

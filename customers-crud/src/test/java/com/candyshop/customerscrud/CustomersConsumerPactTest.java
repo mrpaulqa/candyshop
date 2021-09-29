@@ -62,21 +62,6 @@ public class CustomersConsumerPactTest {
                 .toPact();
     }
 
-    @Disabled
-    @Pact(consumer = "application-consumer")
-    public RequestResponsePact aCandy(PactDslWithProvider builder) {
-        return builder
-                .given("Should Provide a Candy information of id 1", "id", 1)
-                .uponReceiving("get a candy")
-                .path("/membership/1")
-                .willRespondWith()
-                .status(200)
-                .body(
-                        new PactDslJsonBody()
-                                .integerType("id", 1)
-                )
-                .toPact();
-    }
 
     @Test
     @PactTestFor(pactMethod = "allMembership")

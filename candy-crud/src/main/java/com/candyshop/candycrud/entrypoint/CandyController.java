@@ -35,6 +35,15 @@ public class CandyController {
         return c;
     }
 
+    @GetMapping(path="/candy/{id}/composition")
+    public Candy getCompositionById(@PathVariable Integer id){
+        Candy c = new Candy();
+        c.setName("CompositionName");
+        c.setId(10);
+        c.setComposition("Composition");
+        return c;
+    }
+
     @PutMapping(value = "/candies/update/{id}")
     public Candy updateCandy(@PathVariable Integer id,@RequestBody Candy candy){
         candy.setId(candy.getId());
