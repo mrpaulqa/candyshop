@@ -16,9 +16,9 @@ public class MembershipController {
     @GetMapping("/membership")
     public MembershipResponse getAll() {
         Membership membership = new Membership();
-        membership.setLabel("label");
+        membership.setId(1);
         MembershipResponse membershipResponse = new MembershipResponse();
-        membershipResponse.setMembershipList(Arrays.asList(membership));
+        membershipResponse.setMembership(Arrays.asList(membership));
         return membershipResponse;
     }
 
@@ -27,6 +27,13 @@ public class MembershipController {
     String addNewMembership() {
         Membership membership = new Membership();
         return "Saved";
+    }
+
+    @GetMapping(path="/membership/{id}")
+    public Membership get(@PathVariable Integer id){
+        Membership membership = new Membership();
+        membership.setId(id);
+        return membership;
     }
 
     @PutMapping(value = "/membership/update/{id}")
@@ -40,7 +47,7 @@ public class MembershipController {
 
     @DeleteMapping(value = "/membership/delete/{id}")
     public String deleteMembership(@PathVariable Integer id){
-        getAll().getMembershipList().remove(id);
+        getAll().getMembership().remove(id);
         return "Deleted candy with id: "+id;
     }
 

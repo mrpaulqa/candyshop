@@ -20,7 +20,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 @ExtendWith(PactConsumerTestExt.class) //PactConsumer approach
 @PactTestFor(providerName = "application-candy") //Given provider.
-public class ApplicationConsumerPactTest {
+public class StorageConsumerPactTest {
 
     @Autowired
     private CandyService candyService;
@@ -66,7 +66,7 @@ public class ApplicationConsumerPactTest {
         candyService.setBaseUrl(mockServer.getUrl());
         CandyResponse value = candyService.getAllCandies();
         Assertions.assertEquals(1, value.getCandies().size());
-        Assertions.assertEquals(1, value.getCandies().get(0).getId());
+        Assertions.assertEquals(1, value.getCandies().get(0));
     }
 
     @Test
