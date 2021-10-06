@@ -20,7 +20,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 @ExtendWith(PactConsumerTestExt.class) //PactConsumer approach
 @PactTestFor(providerName = "application-storage") //Given provider.
-public class InvoiceConsumerPactTest { // rename this file to StorageConsumerPactTest
+public class InvoiceConsumerPactTest { // rename this file to StorageConsumerBorrowPactTest
     @Autowired
     private CandyService candyService;
 
