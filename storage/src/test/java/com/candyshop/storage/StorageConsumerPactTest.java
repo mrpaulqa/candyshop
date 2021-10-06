@@ -38,7 +38,7 @@ public class StorageConsumerPactTest {
                 .body(
                         new PactDslJsonBody()
                                 .minArrayLike("candies", 1, 1)
-                                .integerType("id", 1)
+                                .integerType("id", 1) // add name
                                 .closeObject()
                                 .closeArray()
                 )
@@ -55,7 +55,7 @@ public class StorageConsumerPactTest {
                 .status(200)
                 .body(
                         new PactDslJsonBody()
-                                .integerType("id", 1)
+                                .integerType("id", 1) // add name
                 )
                 .toPact();
     }
@@ -75,5 +75,6 @@ public class StorageConsumerPactTest {
         candyService.setBaseUrl(mockServer.getUrl());
         Candy value = candyService.getACandy(1);
         Assertions.assertEquals(1, value.getId());
+        //validate the name as well
     }
 }
