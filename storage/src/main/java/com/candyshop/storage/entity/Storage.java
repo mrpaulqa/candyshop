@@ -10,7 +10,7 @@ public class Storage {
     Long id;
     Candy item;
     Long quantity;
-    Long reserved;
+    Long reserved; //this is supposed to be borrow
     List<Candy> candyList;
 
 }

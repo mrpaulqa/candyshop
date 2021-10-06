@@ -4,6 +4,7 @@ import com.candyshop.storage.entity.Storage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
 import java.util.logging.Logger;
 
 @RestController
@@ -19,6 +20,15 @@ public class StorageController {
         s.setId(1L);
 //        s.(this.candyService.getAllCandies().getStorages());
         return s;
+    }
+
+    //Just an example
+    @PatchMapping(path="/storage/{id}")
+    public Storage borrow(@PathVariable Integer id, @RequestBody Map<String, Object> body) {
+        body.containsKey("amount");
+        body.get("amount");
+        //...
+        return null;
     }
 
 //    @GetMapping(path="/project/{id}")

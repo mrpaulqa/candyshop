@@ -19,11 +19,44 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 @ExtendWith(PactConsumerTestExt.class) //PactConsumer approach
-@PactTestFor(providerName = "application-candy") //Given provider.
-public class InvoiceConsumerPactTest {
+@PactTestFor(providerName = "application-storage") //Given provider.
+public class InvoiceConsumerPactTest { // rename this file to StorageConsumerPactTest
     @Autowired
     private CandyService candyService;
 
+    @Pact(consumer = "application-invoice")
+    public RequestResponsePact borrowItem(PactDslWithProvider builder) {
+        return builder
+                .given("Should borrow 10 units from item id 1")
+                .uponReceiving("id 1 and an amount")
+                //   /storage/{id}/borrow/{amount} /GET   /PUT   /PATCH
+                //   /storage/borrow/{id}/{amount} /GET   /PUT   /PATCH
+                //   /storage/borrow               /POST
+                //          id = 1
+                //          amount = 10
+                //  /storage/{id}                  /PUT
+                //          id = 1
+                //          amount = 10
+                //  /storage                       /PUT
+                //          id = 1
+                //          amount = 10
+                //          method = borrow
+                .path("/storage/i/borrow/10")
+                .willRespondWith()
+                .status(200)
+                .body(
+                        new PactDslJsonBody()
+                                .integerType("id", 10)
+                                .stringType("name","pactName") // reserved amount or borrow
+                )
+                .toPact();
+    }
+
+    // Add new states
+    //    - verify if the id exists or not
+    //    - if id has sufficient amount to be borrow
+
+    // Friendly reminder to see where this goes.
     @Pact(consumer = "application-invoice")
     public RequestResponsePact candyCompositionById(PactDslWithProvider builder) {
         return builder
