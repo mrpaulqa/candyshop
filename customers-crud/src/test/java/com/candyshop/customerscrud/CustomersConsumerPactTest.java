@@ -27,7 +27,7 @@ public class CustomersConsumerPactTest {
     @Autowired
     private MembershipService membershipService;
 
-    @Pact(consumer = "application-consumer")
+    @Pact(consumer = "application-consumer") // applicaiton-customer
     public RequestResponsePact allMembership(PactDslWithProvider builder) {
         return builder
                 // given("") => state
@@ -57,7 +57,7 @@ public class CustomersConsumerPactTest {
                 .status(200)
                 .body(
                         new PactDslJsonBody()
-                                .integerType("id", 1)
+                                .integerType("id", 1) //would be nice if we get label as well + 1 more attribute
                 )
                 .toPact();
     }
@@ -78,6 +78,6 @@ public class CustomersConsumerPactTest {
     void shouldReturnACandy(MockServer mockServer) {
         membershipService.setBaseUrl(mockServer.getUrl());
         Membership value = membershipService.getAMembership(1);
-        Assertions.assertEquals(1, value.getId());
+        Assertions.assertEquals(1, value.getId()); //validate label and + 1 attribute
     }
 }
